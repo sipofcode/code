@@ -6,8 +6,7 @@ class Position
   end
 
   def move(dx, dy)
-    @x += dx
-    @y += dy
+    Position.new(@x + dx, @y + dy)
   end
 end
 
@@ -25,7 +24,7 @@ class Character
   end
 
   def move(dx, dy)
-    @position.move(dx, dy)
+    @position = @position.move(dx, dy)
   end
 
   def in_range_with?(other)
