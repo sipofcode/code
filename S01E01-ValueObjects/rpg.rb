@@ -21,8 +21,8 @@ end
 class Character
   attr_reader :position
 
-  def initialize(x, y)
-    @position = Position.new(x, y)
+  def initialize(position)
+    @position = position
   end
 
   def move(dx, dy)
