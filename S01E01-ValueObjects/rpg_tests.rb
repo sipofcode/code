@@ -5,15 +5,13 @@ require "./rpg"
 class CharacterTest < Minitest::Test
   def test_position_is_saved
     gimli = Character.new(0, 0)
-    assert_equal 0, gimli.x
-    assert_equal 0, gimli.y
+    assert_equal Position.new(0, 0), gimli.position
   end
 
   def test_movement
     gimli = Character.new(0, 0)
     gimli.move(+1, +1)
-    assert_equal 1, gimli.x
-    assert_equal 1, gimli.y
+    assert_equal Position.new(1, 1), gimli.position
   end
 
   def test_in_range

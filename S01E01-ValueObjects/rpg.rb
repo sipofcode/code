@@ -9,8 +9,12 @@ class Position
     Position.new(@x + dx, @y + dy)
   end
 
-  def distance_to there
+  def distance_to(there)
     Math.sqrt((there.x - @x) ** 2 + (there.y - @y) ** 2)
+  end
+
+  def ==(other)
+    @x == other.x && @y == other.y
   end
 end
 
@@ -19,14 +23,6 @@ class Character
 
   def initialize(x, y)
     @position = Position.new(x, y)
-  end
-
-  def x
-    @position.x
-  end
-
-  def y
-    @position.y
   end
 
   def move(dx, dy)
