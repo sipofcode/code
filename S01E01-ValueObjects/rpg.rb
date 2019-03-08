@@ -8,9 +8,15 @@ class Position
   def move(dx, dy)
     Position.new(@x + dx, @y + dy)
   end
+
+  def distance_to there
+    Math.sqrt((there.x - @x) ** 2 + (there.y - @y) ** 2)
+  end
 end
 
 class Character
+  attr_reader :position
+
   def initialize(x, y)
     @position = Position.new(x, y)
   end
@@ -28,7 +34,6 @@ class Character
   end
 
   def in_range_with?(other)
-    Math.sqrt((other.x - @position.x) ** 2 +
-              (other.y - @position.y) ** 2) < 5
+    @position.distance_to(other.position) < 5
   end
 end
