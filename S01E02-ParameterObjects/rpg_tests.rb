@@ -5,22 +5,26 @@ require "./rpg"
 class WeaponTest < Minitest::Test
   def test_can_equip
     weapon = Weapon.new(10, 100, 100)
-    assert weapon.can_be_used_with?(10, 100, 100)
+    stats = Stats.new(10, nil, nil)
+    assert weapon.can_be_used_with?(10, 100, 100, stats)
   end
 
   def test_cannot_equip_low_level
     weapon = Weapon.new(10, 100, 100)
-    refute weapon.can_be_used_with?(9, 100, 100)
+    stats = Stats.new(9, nil, nil)
+    refute weapon.can_be_used_with?(9, 100, 100, stats)
   end
 
   def test_cannot_equip_low_strength
     weapon = Weapon.new(10, 100, 100)
-    refute weapon.can_be_used_with?(10, 99, 100)
+    stats = Stats.new(10, nil, nil)
+    refute weapon.can_be_used_with?(10, 99, 100, stats)
   end
 
   def test_cannot_equip_low_dexterity
     weapon = Weapon.new(10, 100, 100)
-    refute weapon.can_be_used_with?(10, 100, 99)
+    stats = Stats.new(10, nil, nil)
+    refute weapon.can_be_used_with?(10, 100, 99, stats)
   end
 end
 
