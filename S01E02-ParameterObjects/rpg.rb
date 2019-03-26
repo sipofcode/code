@@ -48,9 +48,9 @@ class Potion
     @min_dex = dex
   end
 
-  def can_be_used_with?(lvl, str, dex)
-    lvl >= @min_lvl &&
-    str < @max_str &&
-    dex >= @min_dex
+  def can_be_used_with?(stats)
+    stats.lvl >= @min_lvl &&
+    stats.str < @max_str &&
+    stats.dex >= @min_dex
   end
 end
