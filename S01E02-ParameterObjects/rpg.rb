@@ -6,7 +6,7 @@ class Character
   end
 
   def equip(weapon)
-    stats = Stats.new(@lvl, @str, nil)
+    stats = Stats.new(@lvl, @str, @dex)
     if weapon.can_be_used_with?(@dex, stats)
       @weapon = weapon
     end
@@ -14,7 +14,7 @@ class Character
 end
 
 class Stats
-  attr_reader :lvl, :str
+  attr_reader :lvl, :str, :dex
   def initialize(lvl, str, dex)
     @lvl = lvl
     @str = str
@@ -32,7 +32,7 @@ class Weapon
   def can_be_used_with?(dex, stats = nil)
     stats.lvl >= @min_lvl &&
     stats.str >= @min_str &&
-    dex >= @min_dex
+    stats.dex >= @min_dex
   end
 end
 
