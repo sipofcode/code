@@ -20,6 +20,12 @@ class Stats
     @str = str
     @dex = dex
   end
+
+  def >= other
+    @lvl >= other.lvl &&
+    @str >= other.str &&
+    @dex >= other.dex
+  end
 end
 
 class Weapon
@@ -29,10 +35,9 @@ class Weapon
     @min_dex = dex
   end
 
-  def can_be_used_with?(stats = nil)
-    stats.lvl >= @min_lvl &&
-    stats.str >= @min_str &&
-    stats.dex >= @min_dex
+  def can_be_used_with?(stats)
+    min_stats = Stats.new(@min_lvl, @min_str, @min_dex)
+    stats >= min_stats
   end
 end
 
