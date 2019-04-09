@@ -25,6 +25,10 @@ public class Character {
 	public void equip(Weapon weapon) {
 		this.weapon = weapon;
 	}
+	
+	public void unequip() {
+		this.weapon = new NoWeapon();
+	}
 
 	public double getStamina() {
 		return this.stamina;
