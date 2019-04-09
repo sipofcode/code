@@ -12,13 +12,8 @@ class Character
   end
 
   def attack other
-    if @weapon != nil
-      damage = @str * @weapon.attack_multiplier
-      stamina_impact = @weapon.stamina_impact
-    else
-      damage = @str
-      stamina_impact = 1
-    end
+    damage = @str * @weapon.attack_multiplier
+    stamina_impact = @weapon.stamina_impact
     other.apply_damage damage
     @stamina = [@stamina - stamina_impact, 0].max
   end
