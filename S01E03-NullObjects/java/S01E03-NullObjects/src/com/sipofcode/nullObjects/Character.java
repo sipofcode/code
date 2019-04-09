@@ -8,6 +8,7 @@ public class Character {
 	public Character() {
 		this.strength = 10;
 		this.stamina = this.health = 100;
+		this.weapon = new NoWeapon();
 	}
 	
 	public void applyDamage(double damage) {
