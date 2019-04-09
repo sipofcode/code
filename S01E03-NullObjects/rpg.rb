@@ -4,6 +4,7 @@ class Character
   def initialize
     @str = 10
     @stamina = @health = 100
+    @weapon = NoWeapon.new
   end
 
   def apply_damage damage
