@@ -16,15 +16,8 @@ public class Character {
 	}
 	
 	public void attack(Character other) {
-		double damage = 0;
-		double staminaImpact = 0;
-		if (this.weapon != null) {
-			damage = this.strength * this.weapon.getAttackMultiplier();
-			staminaImpact = this.weapon.getStaminaImpact();
-		} else {
-			damage = this.strength;
-			staminaImpact = 1;
-		}
+		double damage = this.strength * this.weapon.getAttackMultiplier();
+		double staminaImpact = this.weapon.getStaminaImpact();
 		other.applyDamage(damage);
 		this.stamina = Math.max(this.stamina - staminaImpact, 0);
 	}
