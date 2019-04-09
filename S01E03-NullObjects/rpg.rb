@@ -21,6 +21,10 @@ class Character
   def equip weapon
     @weapon = weapon
   end
+
+  def unequip
+    @weapon = NoWeapon.new
+  end
 end
 
 class NoWeapon
