@@ -27,6 +27,16 @@ class Character
   end
 end
 
+class NoWeapon
+  def attack_multiplier
+    1
+  end
+
+  def stamina_impact
+    1
+  end
+end
+
 class ShortWeapon
   def attack_multiplier
     1.5
